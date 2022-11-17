@@ -3,7 +3,7 @@ Um exemplo simples de como ler e plotar dado de temperatura
 do  CRU v.4.06 
 ## Resultado
 
-![Alt text](https://github.com/eduardofhenty/scripts-gerais-R/blob/main/exemplot%20de%20leitura%20netcdf%20no%20R/exemplo%20de%20leitura%20CRU-temperatura.png?raw=true?raw=true "Resultado do plot")
+![Alt text](https://github.com/eduardofhenty/scripts-gerais-R/blob/main/exemplo%20de%20leitura%20netcdf%20no%20R/exemplo%20de%20leitura%20CRU-temperatura.png?raw=true?raw=true?raw=true "Resultado do plot")
 
 ## Requisitos
 RColorBrewer)
