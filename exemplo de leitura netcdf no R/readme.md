@@ -11,7 +11,7 @@ lattice)
 RNetCDF)
 lubridate
 
-##Referencias
+## Referencias
 https://thiagodossantos.com/pt/post/2-raster_basic_operations/
 http://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.06/cruts.2205201912.v4.06/tmp/
 http://crudata.uea.ac.uk/cru/data/hrg/cru_ts_4.06/
