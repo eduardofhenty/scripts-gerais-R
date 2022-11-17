@@ -6,9 +6,9 @@ do  CRU v.4.06
 ![Alt text](https://github.com/eduardofhenty/scripts-gerais-R/blob/main/exemplo%20de%20leitura%20netcdf%20no%20R/exemplo%20de%20leitura%20CRU-temperatura.png?raw=true?raw=true?raw=true "Resultado do plot")
 
 ## Requisitos
-RColorBrewer)
-lattice)
-RNetCDF)
+RColorBrewer
+lattice
+RNetCDF
 lubridate
 
 ## Referencias
