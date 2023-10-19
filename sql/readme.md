@@ -4,7 +4,7 @@ e mesclagem de tabelas com linguagem SQL no R
 
 ## Resultado
 
-
+https://github.com/eduardofhenty/scripts-gerais-R/blob/main/sql/sql.html
 ## Requisitos
 odbc
 DBI
