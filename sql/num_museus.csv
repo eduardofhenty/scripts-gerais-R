@@ -1,0 +1,345 @@
+local;numero
+Portugal;424
+Continente;387
+Norte;109
+Alto Minho;12
+Arcos de Valdevez;1
+Caminha;1
+Melgaço;1
+Monção;2
+Paredes de Coura;1
+Ponte da Barca;0
+Ponte de Lima;1
+Valença;1
+Viana do Castelo;3
+Vila Nova de Cerveira;1
+Cávado;12
+Amares;0
+Barcelos;3
+Braga;6
+Esposende;2
+Terras de Bouro;1
+Vila Verde;0
+Ave;11
+Cabeceiras de Basto;0
+Fafe;0
+Guimarães;4
+Mondim de Basto;0
+Póvoa de Lanhoso;1
+Vieira do Minho;0
+Vila Nova de Famalicão;6
+Vizela;0
+Área Metropolitana do Porto;34
+Arouca;1
+Espinho;1
+Gondomar;1
+Maia;1
+Matosinhos;2
+Oliveira de Azeméis;1
+Paredes;0
+Porto;15
+Póvoa de Varzim;1
+Santa Maria da Feira;3
+Santo Tirso;0
+São João da Madeira;2
+Trofa;0
+Vale de Cambra;1
+Valongo;1
+Vila do Conde;0
+Vila Nova de Gaia;4
+Alto Tâmega;6
+Boticas;1
+Chaves;4
+Montalegre;0
+Ribeira de Pena;0
+Valpaços;0
+Vila Pouca de Aguiar;1
+Tâmega e Sousa;8
+Amarante;1
+Baião;1
+Castelo de Paiva;0
+Celorico de Basto;0
+Cinfães;0
+Felgueiras;0
+Lousada;2
+Marco de Canaveses;1
+Paços de Ferreira;2
+Penafiel;1
+Resende;0
+Douro;14
+Alijó;2
+Armamar;0
+Carrazeda de Ansiães;0
+Freixo de Espada à Cinta;1
+Lamego;0
+Mesão Frio;0
+Moimenta da Beira;0
+Murça;0
+Penedono;0
+Peso da Régua;1
+Sabrosa;1
+Santa Marta de Penaguião;0
+São João da Pesqueira;2
+Sernancelhe;0
+Tabuaço;0
+Tarouca;0
+Torre de Moncorvo;1
+Vila Nova de Foz Côa;2
+Vila Real;4
+Terras de Trás-os-Montes;12
+Alfândega da Fé;0
+Bragança;5
+Macedo de Cavaleiros;3
+Miranda do Douro;1
+Mirandela;1
+Mogadouro;1
+Vila Flor;1
+Vimioso;0
+Vinhais;0
+Centro;124
+Oeste;20
+Alcobaça;2
+Alenquer;3
+Arruda dos Vinhos;0
+Bombarral;0
+Cadaval;1
+Caldas da Rainha;6
+Lourinhã;1
+Nazaré;1
+Óbidos;2
+Peniche;2
+Sobral de Monte Agraço;0
+Torres Vedras;2
+Região de Aveiro;18
+Águeda;1
+Albergaria-a-Velha;0
+Anadia;4
+Aveiro;2
+Estarreja;2
+Ílhavo;2
+Murtosa;0
+Oliveira do Bairro;2
+Ovar;4
+Sever do Vouga;1
+Vagos;0
+Região de Coimbra;21
+Arganil;1
+Cantanhede;1
+Coimbra;8
+Condeixa-a-Nova;2
+Figueira da Foz;1
+Góis;0
+Lousã;2
+Mealhada;0
+Mira;0
+Miranda do Corvo;1
+Montemor-o-Velho;0
+Mortágua;0
+Oliveira do Hospital;2
+Pampilhosa da Serra;1
+Penacova;1
+Penela;1
+Soure;0
+Tábua;0
+Vila Nova de Poiares;0
+Região de Leiria;17
+Alvaiázere;1
+Ansião;1
+Batalha;1
+Castanheira de Pêra;0
+Figueiró dos Vinhos;1
+Leiria;8
+Marinha Grande;1
+Pedrógão Grande;0
+Pombal;2
+Porto de Mós;2
+Viseu Dão Lafões;12
+Aguiar da Beira;0
+Carregal do Sal;1
+Castro Daire;1
+Mangualde;0
+Nelas;0
+Oliveira de Frades;1
+Penalva do Castelo;0
+Santa Comba Dão;0
+São Pedro do Sul;0
+Sátão;0
+Tondela;2
+Vila Nova de Paiva;2
+Viseu;5
+Vouzela;0
+Beira Baixa;4
+Castelo Branco;2
+Idanha-a-Nova;0
+Oleiros;0
+Penamacor;1
+Proença-a-Nova;1
+Vila Velha de Ródão;0
+Médio Tejo;16
+Abrantes;3
+Alcanena;2
+Constância;2
+Entroncamento;1
+Ferreira do Zêzere;0
+Mação;1
+Ourém;2
+Sardoal;0
+Sertã;0
+Tomar;2
+Torres Novas;1
+Vila de Rei;1
+Vila Nova da Barquinha;1
+Beiras e Serra da Estrela;16
+Almeida;1
+Belmonte;2
+Celorico da Beira;0
+Covilhã;3
+Figueira de Castelo Rodrigo;0
+Fornos de Algodres;0
+Fundão;1
+Gouveia;2
+Guarda;2
+Manteigas;0
+Mêda;0
+Pinhel;0
+Sabugal;1
+Seia;3
+Trancoso;1
+Área Metropolitana de Lisboa;84
+Área Metropolitana de Lisboa;84
+Alcochete;1
+Almada;2
+Amadora;2
+Barreiro;0
+Cascais;8
+Lisboa;44
+Loures;3
+Mafra;1
+Moita;0
+Montijo;1
+Odivelas;0
+Oeiras;1
+Palmela;2
+Seixal;1
+Sesimbra;1
+Setúbal;4
+Sintra;10
+Vila Franca de Xira;3
+Alentejo;55
+Alentejo Litoral;4
+Alcácer do Sal;0
+Grândola;2
+Odemira;0
+Santiago do Cacém;1
+Sines;1
+Baixo Alentejo;12
+Aljustrel;0
+Almodôvar;2
+Alvito;0
+Barrancos;1
+Beja;1
+Castro Verde;2
+Cuba;1
+Ferreira do Alentejo;1
+Mértola;1
+Moura;1
+Ourique;0
+Serpa;1
+Vidigueira;1
+Lezíria do Tejo;8
+Almeirim;1
+Alpiarça;1
+Azambuja;1
+Benavente;0
+Cartaxo;1
+Chamusca;0
+Coruche;1
+Golegã;1
+Rio Maior;0
+Salvaterra de Magos;0
+Santarém;2
+Alto Alentejo;15
+Alter do Chão;1
+Arronches;1
+Avis;1
+Campo Maior;1
+Castelo de Vide;0
+Crato;0
+Elvas;4
+Fronteira;1
+Gavião;0
+Marvão;1
+Monforte;0
+Nisa;1
+Ponte de Sor;0
+Portalegre;3
+Sousel;1
+Alentejo Central;16
+Alandroal;0
+Arraiolos;1
+Borba;0
+Estremoz;2
+Évora;4
+Montemor-o-Novo;1
+Mora;1
+Mourão;1
+Portel;0
+Redondo;3
+Reguengos de Monsaraz;0
+Vendas Novas;0
+Viana do Alentejo;0
+Vila Viçosa;3
+Algarve;15
+Algarve;15
+Albufeira;1
+Alcoutim;1
+Aljezur;1
+Castro Marim;0
+Faro;2
+Lagoa;0
+Lagos;2
+Loulé;2
+Monchique;0
+Olhão;1
+Portimão;1
+São Brás de Alportel;1
+Silves;2
+Tavira;1
+Vila do Bispo;0
+Vila Real de Santo António;0
+Região Autónoma dos Açores;19
+Região Autónoma dos Açores;19
+Região Autónoma dos Açores;19
+Angra do Heroísmo;1
+Calheta;1
+Corvo;0
+Horta;3
+Lagoa;2
+Lajes das Flores;0
+Lajes do Pico;1
+Madalena;0
+Nordeste;0
+Ponta Delgada;2
+Povoação;1
+Ribeira Grande;4
+Santa Cruz da Graciosa;1
+Santa Cruz das Flores;1
+São Roque do Pico;0
+Velas;0
+Vila da Praia da Vitória;0
+Vila do Porto;1
+Vila Franca do Campo;1
+Região Autónoma da Madeira;18
+Região Autónoma da Madeira;18
+Região Autónoma da Madeira;18
+Calheta;1
+Câmara de Lobos;1
+Funchal;10
+Machico;2
+Ponta do Sol;0
+Porto Moniz;0
+Porto Santo;1
+Ribeira Brava;1
+Santa Cruz;0
+Santana;1
+São Vicente;1

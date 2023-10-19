@@ -1,0 +1,338 @@
+#Exemplos de aplicações do SQL no R
+---
+title: "SQL"
+author: "Eduardo Fernandes Henriques"
+date: '2023-10-03'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r echo=FALSE}
+library(odbc)
+library(DBI)
+library(tidyverse)
+library(RSQLite)
+library(datasets)
+
+```
+
+
+## R Markdown
+
+
+```{r }
+#Carregar um exemplo de dataframe
+
+data("mtcars")
+ 
+#Criar uma base de dados
+con <- dbConnect(drv = RSQLite::SQLite(),
+                 dbname = ":memory:")
+ 
+#Armazena os dados em uma base de dados
+dbWriteTable(conn = con, 
+             name = "cars",
+             value = mtcars)
+```
+
+#Mostra os dados
+```{r , echo=FALSE}
+tbl(src = con,"cars") 
+```
+#A criar uma tabela com algumas especificações 
+```{sql connection=con}
+CREATE TABLE loja
+(iD decimal (5) NOT NULL PRIMARY KEY UNIQUE,
+ nome char(20)
+)
+```
+
+#A remover loja
+```{sql connection=con}
+drop table loja
+```
+#A criar uma tabela com varias de vários tipos e especificações
+```{sql connection=con}
+CREATE TABLE loja
+(iD int (5) NOT NULL PRIMARY KEY UNIQUE, --Não nulo, chave primária e único
+ nome varchar(20),  --cadeia de caracteres de tamanho variável
+ endereco varchar(30),
+ cidade varchar(30) DEFAULT 'Lisboa',
+ distrito varchar(30),
+ cep  decimal(7), --tipo float
+ num_fun decimal(2) CHECK (num_fun >3),
+ gerente char (10),-- tamanho fixo de caracteres
+ tipo char(6) CHECK (tipo in ('novo','usado') )--verifica se é um dos valroes
+);
+
+```
+
+
+
+#Inserir registro 
+```{sql connection=con}
+insert into loja 
+values (10,'Mundo dos carros','R: Roma', 'Lisboa','Lisboa','33456','15','Eduardo','novo' )
+
+```
+#A criar uma tabela com os modelo de carro com as colunas cor, ano, fabricante, modelo e preço
+```{sql connection=con}
+CREATE TABLE mod_car
+(cor char (10),
+  ano int,
+  fabricante char(15),
+  mod char(15),
+  preco decimal (5,2)
+);
+
+```
+#Inserir registo em mod_car
+```{sql connection=con}
+insert into mod_car (cor, ano,fabricante,mod,preco) 
+values('cinza','2014','Toyota','Cross','45800.2');
+```
+
+#Inserir o segundo registo em mod_car
+```{sql connection=con}
+insert into mod_car (cor, ano,fabricante,mod,preco) 
+values('branco','2016','Hyundai','Creta','70800.2');
+```
+#Inserir o terceiro registo em mod_car
+```{sql connection=con}
+insert into mod_car (cor, ano,fabricante,mod,preco) 
+values('preto','2017','Fiat','Cross','83600.2');
+```
+
+
+#A modificar a tabela mod_car para incluir novas colunas 
+```{sql connection=con}
+alter table mod_car 
+add column car_id int ; 
+--add column primary key (car_id)
+alter table mod_car
+add column chast varchar(10);
+--modify column mod varchar(25);
+```
+
+#Mostra a tabele mod_car
+```{sql connection=con}
+select * from mod_car;
+```
+
+#A consultar dados da tabela loja
+```{sql connection=con}
+select * from loja;
+```
+
+
+#Opção 2 para inserir registro
+#Inserir registro 
+```{sql connection=con}
+insert into loja (ID, nome,endereco,cidade, distrito,cep,num_fun,gerente,tipo)
+values (14,'Armazem de carros','R: Roma', 'Lisboa','Lisboa','38996','10','Pedro','usado' );
+
+```
+```{sql connection=con}
+insert into loja (ID, nome,endereco,cidade, distrito,cep,num_fun,gerente,tipo)
+values (18,'Armazem de carros','R: Roma', 'Porto',
+'Porto','40996','8','Joao','usado' );
+
+```
+
+
+#A consultar dados de loja
+```{sql connection=con}
+select * from loja;
+```
+
+#Actualizar um determinado campo de um registo
+```{sql connection=con}
+update loja
+set num_fun=25
+where ID =10
+
+```
+
+#A incluir um novo registo na tabela loja
+
+```{sql connection=con}
+alter table loja ADD descr char(20);
+```
+
+
+#Consulta de mtcars
+#Mostra todo o conteudo de cars limitado as 8 primeiras linhas
+```{sql connection=con}
+select * from cars limit 8;
+```
+#Seleciona a tabela com linhas em que hp está entre 90 e 120
+```{sql connection=con}
+select * from cars where hp between 90 and 120;
+```
+
+#Mostra as opções com cyl = 4
+```{sql connection=con}
+-- Mostra as opções com cyl = 4
+select * from cars as carro where cyl == 4 ;
+
+```
+
+#Mostra as opções com cyl = 4 e hp maior ou igual  65
+```{sql connection=con}
+select * from cars where cyl == 4 and hp >= 65;
+```
+
+#Selecionar mpg, cyl e hp com mpg maior ou igual a 22 e ordena por hp em ordem descrente
+
+```{sql connection=con}
+select mpg, cyl, hp from cars where mpg >=22
+order by hp DESC;
+```
+
+
+```{sql connection=con}
+-- Seleciona os dois maiores hp
+select  mpg, cyl, hp from cars where mpg >=22
+order by hp DESC;
+```
+#A ler duas tabelas
+```{r}
+distr <- read.table("C:/Scripts/rmd/distrito.csv",header = TRUE,sep = ";",encoding = "UTF-8")#Apenas duas colunas
+distr2 <- read.table("C:/Scripts/rmd/distrito_portugal.csv",header = TRUE,sep = ";",encoding = "UTF-8") #Inclui mais informação como população
+
+#Cria uma base de dados para consulta
+con2 <- dbConnect(drv = RSQLite::SQLite(),
+                 dbname = ":memory:")
+ 
+#salva a tabela para consulta
+dbWriteTable(conn = con2, 
+             name = "distr",
+             value = distr)
+
+dbWriteTable(conn = con2, 
+             name = "distr2",
+             value = distr2)
+```
+
+
+```{sql connection=con2}
+-- distritos que começam com B
+select   distrito from distr where distrito like 'B%';
+```
+
+```{sql connection=con2}
+-- distritos que começam com V
+select   distrito from distr where distrito like 'V%';
+```
+
+```{sql connection=con2}
+-- distritos que começam com B ou também não com C, upper mostra em maísculo
+select   upper (distrito) from distr where distrito like 'B%' or distrito not like 'S%';
+```
+
+```{sql connection=con2}
+-- distritos que num 1 e 5
+select   * from distr where num  in  (1,5) ;
+```
+```{sql connection=con2}
+-- exemplo com operador union em duas consultas separadas
+select   * from distr where num  in  (1,5) 
+union 
+select   * from distr where num  in  (2,4) ;
+```
+
+```{sql connection=con2}
+-- distritos que num 1 e 5
+select   * from distr2  ;
+```
+#Aplicações com JOIN
+#Tabela A é distr e Tabela B é distr2
+#Devolve todos os registos de A e os registos de B que são comum com A
+#left join
+```{sql connection=con2}
+select * from distr left join distr2 on distr.distrito = distr2.distrito;
+```
+#left excluding join
+#Todos os registos da tabela A exceto os que são comum com a tabela B
+
+```{sql connection=con2}
+select * from distr left join distr2 on distr.distrito = distr2.distrito
+where distr2.distrito is null;
+```
+
+```{r }
+#Define três novos dataframe
+set.seed(1)
+cidades <-c("São Paulo","Osasco","Campinas","São Bernado","Santos","Piracicaba")
+df <-  cbind.data.frame( id_cliente=1:60,cidade= rep(cidades,10),saldo= rnorm(60,80,sd = 10))
+
+emprestimo <- cbind.data.frame( id_cliente= round( runif(20,0,60),0),v_emp =rnorm(20,100,sd = 10))
+con3 <- dbConnect(drv = RSQLite::SQLite(),
+                 dbname = ":memory:")
+df_info <- cbind.data.frame(id_cliente=c(1,2,3),data_nas=c("1986-02-31","1985-04-15","1990-08-08") ,data_aber =c("2022-02-09","2021-12-01","2023-03-07") )
+
+
+dbWriteTable(conn = con3, 
+             name = 'cliente',
+             value = df)
+             
+dbWriteTable(conn = con3, 
+             name = 'emprestimo',
+             value = emprestimo)
+             
+
+dbWriteTable(conn = con3, 
+             name = 'abertura',
+             value = df_info)
+```
+
+#Listar os clientes que possuem valores maiores do que os localizados em São Paulo
+```{sql connection=con3}
+select distinct A.id_cliente, A.cidade,A.saldo
+from cliente A, cliente B
+where A.saldo > B.saldo and B.cidade ='São Paulo';
+
+```
+#Mostrar os clientes que possuem um emprestimo
+
+```{sql connection=con3}
+select id_cliente
+from cliente
+where exists (select *  
+ from emprestimo
+ where cliente.id_cliente = emprestimo.id_cliente ) ;
+ 
+```
+#Mostra os clientes que não tem emprestimo
+```{sql connection=con3}
+ 
+select id_cliente
+from cliente
+where not exists (select *  
+ from emprestimo
+ where cliente.id_cliente = emprestimo.id_cliente ) ;
+ 
+```
+
+#descobrir quais clientes possuem um emprestimo e a partir da id do cliente
+#achar os valores do emprestimo
+
+```{sql connection=con3}
+ 
+select *
+from emprestimo
+where exists( 
+select id_cliente
+from cliente
+where exists (select *  
+ from emprestimo
+ where cliente.id_cliente = emprestimo.id_cliente 
+)
+)
+ order by id_cliente;
+```
+
+
